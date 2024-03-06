@@ -35,3 +35,23 @@ const myFunction = function(){
 console.log(typeof anotherId);
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+
+
+//**************************************MEMORY**************************************/
+
+let realName = "Sohail"
+let socialMediaName = realName
+socialMediaName = "Arman"
+console.log(realName)
+console.log(socialMediaName)
+
+let student1 = {
+    name:"Mohhammad",
+    roll: 123
+}
+let student2 = student1
+student2.roll = 321
+console.log(student1.roll)
+console.log(student2.roll)
