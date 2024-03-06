@@ -40,6 +40,8 @@ console.log(typeof anotherId);
 
 
 //**************************************MEMORY**************************************/
+// Primitive datatypes ---> STACK    //  Non-Primitive datatypes ---> HEAP
+
 
 let realName = "Sohail"
 let socialMediaName = realName
