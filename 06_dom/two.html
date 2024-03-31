@@ -7,6 +7,7 @@
 </head>
 <body style="background-color: rgb(39, 39, 39); color: white;">
     <div class="parent">
+        <!-- This is a comment -->
         <div class="days">Monday</div>
         <div class="days">Tuesday</div>
         <div class="days">Wednesday</div>
@@ -15,8 +16,25 @@
 </body>
 <script>
     const parent = document.querySelector('.parent')
-    console.log(parent)
-    console.log(parent.children)
-    console.log(parent.children[0].innerHTML)
+    // console.log(parent)
+    // console.log(parent.children)
+    // console.log(parent.children[0].innerHTML)
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i].innerHTML)  
+    // }
+
+    // parent.children[0].style.color = 'orange'
+    parent.firstElementChild.style.color = 'green'
+    parent.lastElementChild.style.color = 'red'
+    // console.log(parent.firstElementChild.innerHTML)
+    // console.log(parent.lastElementChild.innerHTML)
+
+    const dayOne = document.querySelector('.days')
+    // console.log(dayOne.innerHTML)
+    // console.log(dayOne.parentElement)
+    // console.log(dayOne.nextElementSibling)
+
+    console.log(`Nodes:- `,parent.childNodes)
 </script>
 </html>
