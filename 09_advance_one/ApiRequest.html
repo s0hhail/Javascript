@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+</head>
+
+    <style>
+        .card {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        #bio {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 35px;
+            font-style: italic;
+        }
+
+        #btn:hover{
+            background-color: grey;
+            cursor: pointer;
+        }
+    </style>
+
+<body style="background-color: rgb(52, 51, 51);">
+    <li>0 UNSENT Client has been created. open() not called yet.</li>
+    <li>1 OPENED open() has been called.</li>
+    <li>2 HEADERS_RECEIVED send() has been called, and headers and status are available.</li>
+    <li>3 LOADING Downloading; responseText holds partial data.</li>
+    <li>4 DONE The operation is complete.</li>
+    <br>
+    <li>0 UNSENT: You've just thought about sending a message but haven't written or sent anything yet. It's like having the
+    idea to text your friend but not actually doing it.</li>
+    <li>1 OPENED: You've started writing your message by opening your messaging app. You've decided who you're going to
+    message and what you want to say, but you haven't hit send yet.</li>
+    <li>2 HEADERS_RECEIVED: You've hit send, and your friend's phone has received your message. They've seen who it's from
+    and maybe the subject, but they haven't read it yet.</li>
+    <li>3 LOADING: Your friend is reading your message, but they haven't finished yet. They might have read part of it, but
+    they're still working on the rest.</li>
+    <li>4 DONE: Your friend has finished reading your message and has responded. The conversation is complete, and you've
+    received their full response.</li>
+
+    <div class="card">
+        <h2>GitHub User Card</h2>
+        <div id="image-container">
+            <img id="user-image" src="" alt="User Image">
+        </div>
+        <div id="bio"></div>
+        <button id="btn">Get User Data</button>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn')
+        btn.addEventListener('click', () => {
+            const requestUrl = 'https://api.github.com/users/s0hhail';
+            const xhr = new XMLHttpRequest();
+    
+            xhr.open('GET', requestUrl);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    const data = JSON.parse(xhr.responseText);
+                    document.getElementById('user-image').src = data.avatar_url;
+                    document.getElementById('bio').innerText = data.bio;
+                }
+            };
+            xhr.send();
+        })
+    </script>
+
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/s0hhail'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data)
+            console.log(data.bio)
+        }
+    }
+    xhr.send()
+</script>
+</html>
